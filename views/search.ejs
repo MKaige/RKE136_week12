@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8079c64af4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Search Movie</title>
+</head>
+<body>
+
+    <div class="search-container">
+        <div class="form-container">
+            <form action="/search" method="POST">
+                <input type="text" name="movieTitle" placeholder="Find a movie">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <% if(movieDetails){%>
+        <div class="result-container">
+            <ul class="movie-data-list">
+                <li><span class="result-movie-title"><%=movieDetails.title%></span></li>
+                <li><span>Year: </span><%=movieDetails.year%></li>
+                <li><span>Genres: </span><%=movieDetails.genres%></li>
+            </ul>
+            <div class="search-image-container">
+                <img src="<%=movieDetails.posterURL%>" alt="">
+            </div>
+            <ul class="movie-data-list">
+                <li><span>Overview: </span><%=movieDetails.overview%></li>
+            </ul>   
+
+            <div class="back-button-container">
+                <a href="/"><i class="fa-solid fa-house"></i>Home</a>
+            </div>
+
+        </div>
+
+        <% } %>
+    </div>
+    
+</body>
+</html>
